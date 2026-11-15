@@ -23,6 +23,8 @@
     "noFallthroughCasesInSwitch": true,
 
     "paths": {
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
       "@/*": ["./src/*"]
     }
   },

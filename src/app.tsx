@@ -4,8 +4,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@components/ui/sidebar'
+import { Router } from '@router/index'
 import { BrowserRouter } from 'react-router-dom'
-import { Router } from './router'
 
 export function App() {
   return (

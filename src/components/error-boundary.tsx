@@ -1,3 +1,4 @@
+import { captureException } from '@sentry/react'
 import { Component, type ReactNode } from 'react'
 
 interface IErrorBoundaryProps {
@@ -21,6 +22,10 @@ export class ErrorBoundary extends Component<
     return {
       hasError: true,
     }
+  }
+
+  componentDidCatch(error: Error): void {
+    captureException(error)
   }
 
   render() {

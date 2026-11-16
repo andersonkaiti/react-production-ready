@@ -1,5 +1,6 @@
 import { TooltipProvider } from '@components/ui/tooltip'
 import '@utils/dynamic-import-error-listener'
+import '@utils/sentry'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from './app'

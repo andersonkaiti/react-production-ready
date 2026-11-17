@@ -14,6 +14,7 @@ phases:
   build:
     commands:
       - pnpm build
+      - rm -rf dist/**/*.js.map
       - aws s3 sync dist "s3://$S3_BUCKET" --delete
 
   post_build:

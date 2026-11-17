@@ -1,3 +1,5 @@
+import { ErrorBoundary } from '@components/error-boundary'
+import { CardError } from '@components/home/tabs/card-error'
 import { Loading } from '@components/home/tabs/loading'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@components/ui/tabs'
 import { lazy, Suspense } from 'react'
@@ -25,7 +27,9 @@ export default function HomePage() {
         </TabsContent>
         <TabsContent value="analytics">
           <Suspense fallback={<Loading />}>
-            <Analytics />
+            <ErrorBoundary fallback={<CardError />}>
+              <Analytics />
+            </ErrorBoundary>
           </Suspense>
         </TabsContent>
         <TabsContent value="reports">

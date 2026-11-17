@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 24
+    commands:
+      - npm install --global pnpm@11
+
+  pre_build:
+    commands:
+      - pnpm install --frozen-lockfile
+
+  build:
+    commands:
+      - pnpm build
+      - aws s3 sync dist "s3://$S3_BUCKET" --delete
+
+  post_build:
+    commands:
+      - aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths index.html

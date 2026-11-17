@@ -1,4 +1,5 @@
 import { TooltipProvider } from '@components/ui/tooltip'
+import '@utils/clarity'
 import '@utils/dynamic-import-error-listener'
 import '@utils/sentry'
 import { StrictMode } from 'react'

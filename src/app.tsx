@@ -4,12 +4,13 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@components/ui/sidebar'
+import Clarity from '@microsoft/clarity'
 import { Router } from '@router/index'
 import { setUser } from '@sentry/react'
 import { useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 
-const account = {
+const user = {
   name: 'Test User',
   email: 'test@example.com',
   id: window.crypto.randomUUID(),
@@ -18,7 +19,9 @@ const account = {
 export function App() {
   useEffect(() => {
     if (import.meta.env.PROD) {
-      setUser(account)
+      setUser(user)
+
+      Clarity.identify(user.id, undefined, undefined, user.name)
     }
   }, [])
 
